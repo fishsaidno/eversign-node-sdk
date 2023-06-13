@@ -420,6 +420,8 @@ declare module 'eversign/lib/DocumentTemplate' {
         public getMessage(): string
         public getRecipients(): Recipient[]
         public getRedirect(): string
+        public getReminders(): boolean
+        public getRequireAllSigners(): boolean
         public getRedirectDecline(): string
         public getSandbox(): boolean
         public getSigners(): Signer[]
@@ -435,6 +437,8 @@ declare module 'eversign/lib/DocumentTemplate' {
         public setRecipients(recipients: Recipient[]): void
         public setRedirect(redirect: string): void
         public setRedirectDecline(redirect_decline: string): void
+        public setReminders(newReminders: boolean): void
+        public setRequireAllSigners(newRequireAllSigners: boolean): void
         public setSandbox(sandbox: boolean): void
         public setSigners(signers: Signer[]): void
         public setTemplateId(templateId?: string | undefined): void
@@ -493,6 +497,14 @@ declare module 'eversign/lib/DocumentTemplate' {
              * Expiration Time of the Document, default expiration time will be used if unset
              */
             expires: Date,
+            /**
+             * Set to true to enable Auto Reminders for this Document
+             */
+            reminders: boolean,
+            /**
+             * Set to true requires all signers to sign the document to complete it
+             */
+            requireAllSigners: boolean,
             /**
              * Array of Signer Objects which are associated with the Document
              */
